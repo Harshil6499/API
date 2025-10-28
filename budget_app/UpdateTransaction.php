@@ -30,7 +30,7 @@ $note = isset($data['note']) ? $data['note'] : null;
 $date = isset($data['date']) ? $data['date'] : null;
 
 // Check if transaction exists
-$check = mysqli_query($con, "SELECT * FROM transactions WHERE transaction_id = '$transaction_id'");
+$check = mysqli_query($con, "SELECT * FROM harshil_transactions WHERE transaction_id = '$transaction_id'");
 if(!$check || mysqli_num_rows($check) == 0){
     echo json_encode([
         "status" => "error",
@@ -54,7 +54,7 @@ if(empty($fields)){
     exit;
 }
 
-$updateQuery = "UPDATE transactions SET " . implode(", ", $fields) . ", updated_at = CURRENT_TIMESTAMP WHERE transaction_id = '$transaction_id'";
+$updateQuery = "UPDATE harshil_transactions SET " . implode(", ", $fields) . ", updated_at = CURRENT_TIMESTAMP WHERE transaction_id = '$transaction_id'";
 
 if(mysqli_query($con, $updateQuery)){
     echo json_encode([

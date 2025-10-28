@@ -55,8 +55,8 @@ if ($start_date) {
 }
 
 // Queries
-$incomeQuery = "SELECT SUM(amount) as total_income FROM income $incomeWhere";
-$expenseQuery = "SELECT SUM(amount) as total_expense FROM expenses $expenseWhere";
+$incomeQuery = "SELECT SUM(amount) as total_income FROM harshil_income $incomeWhere";
+$expenseQuery = "SELECT SUM(amount) as total_expense FROM harshil_expenses $expenseWhere";
 
 // Execute queries
 $incomeResult = mysqli_query($con, $incomeQuery);

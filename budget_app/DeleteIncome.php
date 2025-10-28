@@ -16,13 +16,13 @@ if (!isset($data['income_id']) || !isset($data['user_id'])) {
 $income_id = $data['income_id'];
 $user_id = $data['user_id'];
 
-$check = mysqli_query($con, "SELECT * FROM income WHERE income_id='$income_id' AND user_id='$user_id'");
+$check = mysqli_query($con, "SELECT * FROM harshil_income WHERE income_id='$income_id' AND user_id='$user_id'");
 if (!$check || mysqli_num_rows($check) === 0) {
     echo json_encode(["status" => "error", "message" => "Income not found or unauthorized"]);
     exit;
 }
 
-if (mysqli_query($con, "DELETE FROM income WHERE income_id='$income_id'")) {
+if (mysqli_query($con, "DELETE FROM harshil_income WHERE income_id='$income_id'")) {
     echo json_encode(["status" => "success", "message" => "Income deleted successfully"]);
 } else {
     echo json_encode(["status" => "error", "message" => "Database error: " . mysqli_error($con)]);

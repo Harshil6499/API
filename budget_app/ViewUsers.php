@@ -3,7 +3,7 @@ header("Content-Type: application/json");
 include 'connect.php'; 
 
 // SQL query 
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM harshil_users";
 $result = $con->query($sql);
 
 if ($result->num_rows > 0) {

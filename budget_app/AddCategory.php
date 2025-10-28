@@ -39,7 +39,7 @@ if (!in_array($type, ['income', 'expense'])) {
 }
 
 // Check if category already exists for the same user and type
-$checkQuery = "SELECT * FROM categories WHERE user_id='$user_id' AND name='$name' AND type='$type'";
+$checkQuery = "SELECT * FROM harshil_categories WHERE user_id='$user_id' AND name='$name' AND type='$type'";
 $check = mysqli_query($con, $checkQuery);
 
 if (mysqli_num_rows($check) > 0) {
@@ -51,7 +51,7 @@ if (mysqli_num_rows($check) > 0) {
 }
 
 // Insert category
-$query = "INSERT INTO categories (user_id, name, type) VALUES ('$user_id', '$name', '$type')";
+$query = "INSERT INTO harshil_categories (user_id, name, type) VALUES ('$user_id', '$name', '$type')";
 if (mysqli_query($con, $query)) {
     echo json_encode([
         "status" => "success",

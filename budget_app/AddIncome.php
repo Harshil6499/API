@@ -22,14 +22,14 @@ $note       = isset($data['note']) ? $data['note'] : '';
 $income_date = $data['income_date'];
 
 // Optional: Check if account exists
-$checkAccount = mysqli_query($con, "SELECT account_id FROM accounts WHERE account_id = '$account_id'");
+$checkAccount = mysqli_query($con, "SELECT account_id FROM harshil_accounts WHERE account_id = '$account_id'");
 if (mysqli_num_rows($checkAccount) === 0) {
     echo json_encode(["status" => "error", "message" => "Invalid account_id"]);
     exit;
 }
 
 // Insert income
-$query = "INSERT INTO income (user_id, account_id, category, amount, note, income_date)
+$query = "INSERT INTO harshil_income (user_id, account_id, category, amount, note, income_date)
           VALUES ('$user_id', '$account_id', '$category', '$amount', '$note', '$income_date')";
 
 if (mysqli_query($con, $query)) {

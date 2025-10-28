@@ -19,9 +19,9 @@ $role = strtolower($_GET['role']);
 if ($role === 'admin') {
     // Admin can see all expenses with user & account info
     $query = "SELECT e.*, u.name AS user_name, a.account_name 
-              FROM expenses e
-              JOIN users u ON e.user_id = u.user_id
-              JOIN accounts a ON e.account_id = a.account_id
+              FROM harshil_expenses e
+              JOIN harshil_users u ON e.user_id = u.user_id
+              JOIN harshil_accounts a ON e.account_id = a.account_id
               ORDER BY e.expense_date DESC";
 } else {
     // User can only see their own expenses
@@ -32,8 +32,8 @@ if ($role === 'admin') {
     $user_id = $_GET['user_id'];
 
     $query = "SELECT e.*, a.account_name 
-              FROM expenses e
-              JOIN accounts a ON e.account_id = a.account_id
+              FROM harshil_expenses e
+              JOIN harshil_accounts a ON e.account_id = a.account_id
               WHERE e.user_id = '$user_id'
               ORDER BY e.expense_date DESC";
 }

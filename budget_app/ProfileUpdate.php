@@ -46,7 +46,7 @@ if (empty($fields)) {
     exit;
 }
 
-$update_query = "UPDATE users SET " . implode(", ", $fields) . " WHERE user_id ='$id'";
+$update_query = "UPDATE harshil_users SET " . implode(", ", $fields) . " WHERE user_id ='$id'";
 
 if ($con->query($update_query) === TRUE) {
     echo json_encode([

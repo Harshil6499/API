@@ -51,7 +51,7 @@ if ($password !== $confirm_password) {
 }
 
 // Insert user without hashing
-$sql = "INSERT INTO users (name, surname, email, phone, password, confirm_password, DOB, profile_image, role)
+$sql = "INSERT INTO harshil_users (name, surname, email, phone, password, confirm_password, DOB, profile_image, role)
         VALUES ('$name', '$surname', '$email', '$phone', '$password', '$confirm_password', '$DOB', '$profile_image', '$role')";
 
 if ($con->query($sql) === TRUE) {

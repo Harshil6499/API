@@ -28,7 +28,7 @@ $amount = $data['amount'];
 $note = isset($data['note']) ? $data['note'] : '';
 $expense_date = $data['expense_date'];
 
-$query = "INSERT INTO expenses (user_id, account_id, category, amount, note, expense_date)
+$query = "INSERT INTO harshil_expenses (user_id, account_id, category, amount, note, expense_date)
           VALUES ('$user_id', '$account_id', '$category', '$amount', '$note', '$expense_date')";
 
 if (mysqli_query($con, $query)) {

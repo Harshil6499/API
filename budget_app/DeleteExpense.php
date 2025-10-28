@@ -27,7 +27,7 @@ $expense_id = $data['expense_id'];
 $user_id = $data['user_id'];
 
 // Check if expense belongs to this user
-$checkQuery = "SELECT * FROM expenses WHERE expense_id = '$expense_id' AND user_id = '$user_id'";
+$checkQuery = "SELECT * FROM harshil_expenses WHERE expense_id = '$expense_id' AND user_id = '$user_id'";
 $checkResult = mysqli_query($con, $checkQuery);
 
 if (!$checkResult || mysqli_num_rows($checkResult) === 0) {
@@ -39,7 +39,7 @@ if (!$checkResult || mysqli_num_rows($checkResult) === 0) {
 }
 
 // Delete expense
-$deleteQuery = "DELETE FROM expenses WHERE expense_id = '$expense_id'";
+$deleteQuery = "DELETE FROM harshil_expenses WHERE expense_id = '$expense_id'";
 
 if (mysqli_query($con, $deleteQuery)) {
     echo json_encode([

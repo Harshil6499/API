@@ -11,9 +11,9 @@ $role = strtolower($_GET['role']);
 
 if ($role === 'admin') {
     $query = "SELECT i.*, u.name AS user_name, a.account_name
-              FROM income i
-              JOIN users u ON i.user_id = u.user_id
-              JOIN accounts a ON i.account_id = a.account_id
+              FROM harshil_income i
+              JOIN harshil_users u ON i.user_id = u.user_id
+              JOIN harshil_accounts a ON i.account_id = a.account_id
               ORDER BY i.income_date DESC";
 } else {
     if (!isset($_GET['user_id'])) {
@@ -22,8 +22,8 @@ if ($role === 'admin') {
     }
     $user_id = $_GET['user_id'];
     $query = "SELECT i.*, a.account_name
-              FROM income i
-              JOIN accounts a ON i.account_id = a.account_id
+              FROM harshil_income i
+              JOIN harshil_accounts a ON i.account_id = a.account_id
               WHERE i.user_id = '$user_id'
               ORDER BY i.income_date DESC";
 }

@@ -26,14 +26,14 @@ if ($role === 'user') {
     $user_id = $_GET['user_id'];
 
     // Total income
-    $incomeQuery = "SELECT SUM(amount) AS total_income FROM transactions WHERE user_id='$user_id' AND type='income'";
+    $incomeQuery = "SELECT SUM(amount) AS total_income FROM harshil_transactions WHERE user_id='$user_id' AND type='income'";
     // Total expense
-    $expenseQuery = "SELECT SUM(amount) AS total_expense FROM transactions WHERE user_id='$user_id' AND type='expense'";
+    $expenseQuery = "SELECT SUM(amount) AS total_expense FROM harshil_transactions WHERE user_id='$user_id' AND type='expense'";
 } 
 else if ($role === 'admin') {
     // For admin → calculate totals across all users
-    $incomeQuery = "SELECT SUM(amount) AS total_income FROM transactions WHERE type='income'";
-    $expenseQuery = "SELECT SUM(amount) AS total_expense FROM transactions WHERE type='expense'";
+    $incomeQuery = "SELECT SUM(amount) AS total_income FROM harshil_transactions WHERE type='income'";
+    $expenseQuery = "SELECT SUM(amount) AS total_expense FROM harshil_transactions WHERE type='expense'";
 } 
 else {
     echo json_encode([

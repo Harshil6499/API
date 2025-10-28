@@ -21,13 +21,13 @@ $amount = $data['amount'];
 $note = isset($data['note']) ? $data['note'] : '';
 $income_date = $data['income_date'];
 
-$check = mysqli_query($con, "SELECT * FROM income WHERE income_id='$income_id' AND user_id='$user_id'");
+$check = mysqli_query($con, "SELECT * FROM harshil_income WHERE income_id='$income_id' AND user_id='$user_id'");
 if (!$check || mysqli_num_rows($check) === 0) {
     echo json_encode(["status" => "error", "message" => "Income not found or unauthorized"]);
     exit;
 }
 
-$updateQuery = "UPDATE income SET category='$category', amount='$amount', note='$note', income_date='$income_date', updated_at=NOW() WHERE income_id='$income_id'";
+$updateQuery = "UPDATE harshil_income SET category='$category', amount='$amount', note='$note', income_date='$income_date', updated_at=NOW() WHERE income_id='$income_id'";
 if (mysqli_query($con, $updateQuery)) {
     echo json_encode(["status" => "success", "message" => "Income updated successfully"]);
 } else {

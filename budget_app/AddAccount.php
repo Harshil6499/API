@@ -30,7 +30,7 @@ if(!in_array($account_type, $valid_types)){
 }
 
 // Check if user exists
-$user_check = mysqli_query($con, "SELECT * FROM users WHERE user_id = '$user_id'");
+$user_check = mysqli_query($con, "SELECT * FROM harshil_users WHERE user_id = '$user_id'");
 if(mysqli_num_rows($user_check) == 0){
     echo json_encode([
         "status" => "error",
@@ -40,7 +40,7 @@ if(mysqli_num_rows($user_check) == 0){
 }
 
 // Insert account
-$query = "INSERT INTO accounts (user_id, account_name, account_type, balance) 
+$query = "INSERT INTO harshil_accounts (user_id, account_name, account_type, balance) 
           VALUES ('$user_id', '$account_name', '$account_type', '$balance')";
 
 $result = mysqli_query($con, $query);

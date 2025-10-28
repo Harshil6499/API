@@ -29,7 +29,7 @@ $account_type = isset($data['account_type']) ? $data['account_type'] : null;
 $balance = isset($data['balance']) ? $data['balance'] : null;
 
 // Check if account exists
-$check = mysqli_query($con, "SELECT * FROM accounts WHERE account_id = '$account_id'");
+$check = mysqli_query($con, "SELECT * FROM harshil_accounts WHERE account_id = '$account_id'");
 if(!$check || mysqli_num_rows($check) == 0){
     echo json_encode([
         "status" => "error",
@@ -68,7 +68,7 @@ if(empty($updates)){
 }
 
 // Run update query
-$update_query = "UPDATE accounts SET " . implode(", ", $updates) . " WHERE account_id = '$account_id'";
+$update_query = "UPDATE harshil_accounts SET " . implode(", ", $updates) . " WHERE account_id = '$account_id'";
 $result = mysqli_query($con, $update_query);
 
 if($result){

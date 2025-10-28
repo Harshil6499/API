@@ -39,7 +39,7 @@ for ($i = $months - 1; $i >= 0; $i--) {
     // Income query
     $incomeWhere = "income_date BETWEEN '$month_start' AND '$month_end'";
     if ($role === 'user') $incomeWhere .= " AND user_id='$user_id'";
-    $incomeQuery = "SELECT SUM(amount) as total_income FROM income WHERE $incomeWhere";
+    $incomeQuery = "SELECT SUM(amount) as total_income FROM harshil_income WHERE $incomeWhere";
     $incomeResult = mysqli_query($con, $incomeQuery);
     $total_income = mysqli_fetch_assoc($incomeResult)['total_income'] ?? 0;
     $income_data[] = (float)$total_income;
@@ -47,7 +47,7 @@ for ($i = $months - 1; $i >= 0; $i--) {
     // Expense query
     $expenseWhere = "expense_date BETWEEN '$month_start' AND '$month_end'";
     if ($role === 'user') $expenseWhere .= " AND user_id='$user_id'";
-    $expenseQuery = "SELECT SUM(amount) as total_expense FROM expenses WHERE $expenseWhere";
+    $expenseQuery = "SELECT SUM(amount) as total_expense FROM harshil_expenses WHERE $expenseWhere";
     $expenseResult = mysqli_query($con, $expenseQuery);
     $total_expense = mysqli_fetch_assoc($expenseResult)['total_expense'] ?? 0;
     $expense_data[] = (float)$total_expense;

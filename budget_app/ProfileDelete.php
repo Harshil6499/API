@@ -25,7 +25,7 @@ if (empty($data['user_id'])) {
 $id = $data['user_id'];
 
 // Delete user
-$sql = "DELETE FROM users WHERE user_id='$id'";
+$sql = "DELETE FROM harshil_users WHERE user_id='$id'";
 
 if ($con->query($sql) === TRUE) {
     if ($con->affected_rows > 0) {

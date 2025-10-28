@@ -37,7 +37,7 @@ $note         = isset($data['note']) ? $data['note'] : '';
 $expense_date = $data['expense_date'];
 
 // Check if expense exists and belongs to this user
-$checkQuery = "SELECT * FROM expenses WHERE expense_id = '$expense_id' AND user_id = '$user_id'";
+$checkQuery = "SELECT * FROM harshil_expenses WHERE expense_id = '$expense_id' AND user_id = '$user_id'";
 $checkResult = mysqli_query($con, $checkQuery);
 
 if (!$checkResult || mysqli_num_rows($checkResult) === 0) {
@@ -49,7 +49,7 @@ if (!$checkResult || mysqli_num_rows($checkResult) === 0) {
 }
 
 // Update expense
-$updateQuery = "UPDATE expenses 
+$updateQuery = "UPDATE harshil_expenses 
                 SET category = '$category',
                     amount = '$amount',
                     note = '$note',

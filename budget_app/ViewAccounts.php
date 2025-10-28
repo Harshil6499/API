@@ -6,8 +6,8 @@ $role = isset($_GET['role']) ? strtolower($_GET['role']) : 'user';
 
 if($role === 'admin'){
     $query = "SELECT a.*, u.name AS user_name, u.email AS user_email 
-              FROM accounts a 
-              JOIN users u ON a.user_id = u.user_id";
+              FROM harshil_accounts a 
+              JOIN harshil_users u ON a.user_id = u.user_id";
 } else {
     if(!isset($_GET['user_id'])){
         echo json_encode([
@@ -17,7 +17,7 @@ if($role === 'admin'){
         exit;
     }
     $user_id = $_GET['user_id'];
-    $query = "SELECT * FROM accounts WHERE user_id = '$user_id'";
+    $query = "SELECT * FROM harshil_accounts WHERE user_id = '$user_id'";
 }
 
 $result = mysqli_query($con, $query);

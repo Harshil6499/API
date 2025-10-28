@@ -44,8 +44,8 @@ if (!in_array($type, ['income', 'expense'])) {
 }
 
 // Check if user and account exist
-$userCheck = mysqli_query($con, "SELECT * FROM users WHERE user_id = '$user_id'");
-$accountCheck = mysqli_query($con, "SELECT * FROM accounts WHERE account_id = '$account_id'");
+$userCheck = mysqli_query($con, "SELECT * FROM harshil_users WHERE user_id = '$user_id'");
+$accountCheck = mysqli_query($con, "SELECT * FROM harshil_accounts WHERE account_id = '$account_id'");
 
 if (mysqli_num_rows($userCheck) == 0) {
     echo json_encode(["status" => "error", "message" => "User not found"]);
@@ -57,7 +57,7 @@ if (mysqli_num_rows($accountCheck) == 0) {
 }
 
 // Insert transaction
-$query = "INSERT INTO transactions (user_id, account_id, type, category, amount, note, date)
+$query = "INSERT INTO harshil_transactions (user_id, account_id, type, category, amount, note, date)
           VALUES ('$user_id', '$account_id', '$type', '$category', '$amount', '$note', '$date')";
 
 if (mysqli_query($con, $query)) {

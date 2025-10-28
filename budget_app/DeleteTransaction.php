@@ -26,7 +26,7 @@ if (!isset($data['transaction_id'])) {
 $transaction_id = $data['transaction_id'];
 
 // Check if transaction exists
-$check = mysqli_query($con, "SELECT * FROM transactions WHERE transaction_id = '$transaction_id'");
+$check = mysqli_query($con, "SELECT * FROM harshil_transactions WHERE transaction_id = '$transaction_id'");
 if (!$check || mysqli_num_rows($check) == 0) {
     echo json_encode([
         "status" => "error",
@@ -36,7 +36,7 @@ if (!$check || mysqli_num_rows($check) == 0) {
 }
 
 // Delete transaction
-$deleteQuery = "DELETE FROM transactions WHERE transaction_id = '$transaction_id'";
+$deleteQuery = "DELETE FROM harshil_transactions WHERE transaction_id = '$transaction_id'";
 if (mysqli_query($con, $deleteQuery)) {
     echo json_encode([
         "status" => "success",

@@ -28,7 +28,7 @@ $old_password = $data['old_password'];
 $new_password = $data['new_password'];
 
 // Fetch current password from database
-$sql = "SELECT password FROM users WHERE user_id='$id'";
+$sql = "SELECT password FROM harshil_users WHERE user_id='$id'";
 $result = $con->query($sql);
 
 if ($result === false) {
@@ -46,7 +46,7 @@ if ($result->num_rows == 1) {
     if ($old_password === $user['password']) {
         
         // Update with new password
-        $update_sql = "UPDATE users SET password='$new_password' WHERE user_id='$id'";
+        $update_sql = "UPDATE harshil_users SET password='$new_password' WHERE user_id='$id'";
         if ($con->query($update_sql) === TRUE) {
             echo json_encode([
                 "status" => "success",

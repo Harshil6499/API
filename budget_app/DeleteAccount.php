@@ -26,7 +26,7 @@ if (!isset($data['account_id'])) {
 $account_id = $data['account_id'];
 
 // Check if account exists
-$check = mysqli_query($conn, "SELECT * FROM accounts WHERE account_id = '$account_id'");
+$check = mysqli_query($conn, "SELECT * FROM harshil_accounts WHERE account_id = '$account_id'");
 if (!$check || mysqli_num_rows($check) == 0) {
     echo json_encode([
         "status" => "error",
@@ -36,7 +36,7 @@ if (!$check || mysqli_num_rows($check) == 0) {
 }
 
 // Delete account
-$delete = mysqli_query($con, "DELETE FROM accounts WHERE account_id = '$account_id'");
+$delete = mysqli_query($con, "DELETE FROM harshil_accounts WHERE account_id = '$account_id'");
 
 if ($delete) {
     echo json_encode([

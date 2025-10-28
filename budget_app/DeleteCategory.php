@@ -18,7 +18,7 @@ if (!isset($data['category_id'])) {
 $category_id = $data['category_id'];
 
 // Check if category exists
-$checkQuery = "SELECT * FROM categories WHERE category_id = '$category_id'";
+$checkQuery = "SELECT * FROM harshil_categories WHERE category_id = '$category_id'";
 $checkResult = mysqli_query($con, $checkQuery);
 
 if (!$checkResult || mysqli_num_rows($checkResult) == 0) {
@@ -30,7 +30,7 @@ if (!$checkResult || mysqli_num_rows($checkResult) == 0) {
 }
 
 // Delete category
-$deleteQuery = "DELETE FROM categories WHERE category_id = '$category_id'";
+$deleteQuery = "DELETE FROM harshil_categories WHERE category_id = '$category_id'";
 if (mysqli_query($con, $deleteQuery)) {
     echo json_encode([
         "status" => "success",

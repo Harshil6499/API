@@ -14,7 +14,7 @@ if (!isset($_GET['user_id'])) {
 $id = $_GET['user_id'];
 
 // Fetch user by ID
-$sql = "SELECT user_id, email, phone, profile_image, name, surname, DOB, role FROM users WHERE user_id='$id'";
+$sql = "SELECT user_id, email, phone, profile_image, name, surname, DOB, role FROM harshil_users WHERE user_id='$id'";
 $result = $con->query($sql);
 
 if ($result === false) {

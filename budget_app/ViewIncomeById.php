@@ -27,9 +27,9 @@ $income_id = $_GET['income_id'];
 if ($role === 'admin') {
     // Admin can view any income
     $query = "SELECT i.*, u.name AS user_name, a.account_name
-              FROM income i
-              JOIN users u ON i.user_id = u.user_id
-              JOIN accounts a ON i.account_id = a.account_id
+              FROM harshil_income i
+              JOIN harshil_users u ON i.user_id = u.user_id
+              JOIN harshil_accounts a ON i.account_id = a.account_id
               WHERE i.income_id = '$income_id'";
 } else {
     // User must provide user_id to view their own income
@@ -43,8 +43,8 @@ if ($role === 'admin') {
     $user_id = $_GET['user_id'];
 
     $query = "SELECT i.*, a.account_name
-              FROM income i
-              JOIN accounts a ON i.account_id = a.account_id
+              FROM harshil_income i
+              JOIN harshil_accounts a ON i.account_id = a.account_id
               WHERE i.income_id = '$income_id' AND i.user_id = '$user_id'";
 }
 

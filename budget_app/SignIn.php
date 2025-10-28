@@ -27,7 +27,7 @@ $email = $data['email'];
 $password = $data['password'];
 
 // Fetch user
-$sql = "SELECT * FROM users WHERE email='$email'";
+$sql = "SELECT * FROM harshil_users WHERE email='$email'";
 $result = $con->query($sql);
 
 if ($result === false) {

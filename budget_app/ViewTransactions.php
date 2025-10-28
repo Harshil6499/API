@@ -19,9 +19,9 @@ if ($role === 'admin') {
                      u.name AS user_name, 
                      u.email AS user_email, 
                      a.account_name 
-              FROM transactions t
-              JOIN users u ON t.user_id = u.user_id
-              JOIN accounts a ON t.account_id = a.account_id
+              FROM harshil_transactions t
+              JOIN harshil_users u ON t.user_id = u.user_id
+              JOIN harshil_accounts a ON t.account_id = a.account_id
 
               ORDER BY t.created_at DESC";
 } else {
@@ -36,8 +36,8 @@ if ($role === 'admin') {
 
     $user_id = $_GET['user_id'];
     $query = "SELECT t.*, a.account_name 
-              FROM transactions t
-              JOIN accounts a ON t.account_id = a.account_id
+              FROM harshil_transactions t
+              JOIN harshil_accounts a ON t.account_id = a.account_id
               WHERE t.user_id = '$user_id'
               ORDER BY t.created_at DESC";
 }

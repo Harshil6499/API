@@ -28,7 +28,7 @@ $name = isset($data['name']) ? $data['name'] : null;
 $type = isset($data['type']) ? $data['type'] : null; 
 
 // Check if category exists
-$checkQuery = "SELECT * FROM categories WHERE category_id = '$category_id'";
+$checkQuery = "SELECT * FROM harshil_categories WHERE category_id = '$category_id'";
 $checkResult = mysqli_query($con, $checkQuery);
 
 if (!$checkResult || mysqli_num_rows($checkResult) == 0) {
@@ -45,7 +45,7 @@ if ($name !== null) $updateFields[] = "name = '$name'";
 if ($type !== null) $updateFields[] = "type = '$type'";
 $updateFields[] = "updated_at = NOW()";
 
-$updateQuery = "UPDATE categories SET " . implode(", ", $updateFields) . " WHERE category_id = '$category_id'";
+$updateQuery = "UPDATE harshil_categories SET " . implode(", ", $updateFields) . " WHERE category_id = '$category_id'";
 
 if (mysqli_query($con, $updateQuery)) {
     echo json_encode([
